@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>S & S Collection | Timeless Elegance</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noir:#0a0a0a;
+  --cream:#faf7f2;
+  --blush:#e8c4b8;
+  --rose:#ae4667;
+  --gold:#c9a96e;
+  --mid:#3a3a3a;
+  --soft:#f4ede6;
+  --white:#ffffff;
+  --trans:0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--noir);overflow-x:hidden;transition:background 0.3s ease, color 0.3s ease;}
+::selection{background:var(--rose);color:var(--white);}
+
+/* Dark/Light Mode Variables */
+:root {
+  --bg-primary: #faf7f2;
+  --bg-secondary: #ffffff;
+  --text-primary: #0a0a0a;
+  --text-secondary: #3a3a3a;
+  --card-bg: #ffffff;
+  --border-color: rgba(0,0,0,0.1);
+  --navbar-bg: rgba(250,247,242,0.96);
+  --footer-bg: #0a0a0a;
+}
+
+body.dark-mode {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --text-primary: #eeeeee;
+  --text-secondary: #cccccc;
+  --card-bg: #0f3460;
+  --border-color: rgba(255,255,255,0.1);
+  --navbar-bg: rgba(26,26,46,0.96);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.logo-img { height: 170px; width: auto; object-fit: contain; transition: height 0.3s ease; }
+.cursor{position:fixed;width:8px;height:8px;background:var(--rose);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--rose);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:transform 0.18s,width 0.3s,height 0.3s,opacity 0.3s;}
+.cursor-ring.expand{width:60px;height:60px;opacity:0.5;}
+.cursor, .cursor-ring {
+  display: none !important;
+}
+
+#loader{position:fixed;inset:0;background:var(--noir);z-index:99990;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;}
+#loader .l-logo{max-width:180px;height:auto;animation:fadeUp 0.8s 0.3s forwards;opacity:0;}
+#loader .l-bar{width:200px;height:1px;background:rgba(255,255,255,0.2);position:relative;overflow:hidden;}
+#loader .l-fill{position:absolute;inset:0;background:var(--rose);animation:fill 1.8s 0.8s ease forwards;}
+@keyframes fill{from{transform:scaleX(0);transform-origin:left;}to{transform:scaleX(1);transform-origin:left;}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+/* Navbar default state (on hero section with dark background) */
+nav:not(.scrolled) .nav-links a {
+  color: white !important;
+}
+
+nav:not(.scrolled) .nav-icons a {
+  color: white !important;
+}
+
+nav:not(.scrolled) .hamburger span {
+  background: white !important;
+}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4%;transition:background var(--trans),padding var(--trans),backdrop-filter var(--trans);}
+nav.scrolled{background:var(--navbar-bg);backdrop-filter:blur(16px);box-shadow:0 4px 30px rgba(0,0,0,0.03);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:85px;}
+nav.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+nav.scrolled .nav-links a {
+  color: #0a0a0a !important;
+}
+
+nav.scrolled .nav-icons a {
+  color: #0a0a0a !important;
+}
+
+nav.scrolled .hamburger span {
+  background: #0a0a0a !important;
+}
+
+nav.scrolled .nav-links a:hover,
+nav.scrolled .nav-links a.active {
+  color: var(--rose) !important;
+}
+
+nav.scrolled .nav-icons a:hover {
+  color: var(--rose) !important;
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center;}
+.nav-links{display:flex;gap:2rem;list-style:none;margin:0;padding:0;}
+.nav-links li a{font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;color:var(--text-primary);position:relative;padding-bottom:3px;transition:color var(--trans);}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--trans);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--rose)!important;}
+
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-icons{display:flex;gap:1rem;align-items:center;}
+.nav-icons a{color:var(--text-primary);font-size:1.1rem;transition:color var(--trans),transform var(--trans);text-decoration:none;position:relative;}
+.nav-icons a:hover{color:var(--rose);transform:scale(1.1);}
+.cart-badge span{position:absolute;top:-8px;right:-10px;background:var(--rose);color:#fff;font-size:0.6rem;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;}
+
+/* Theme Toggle Button */
+.theme-toggle{background:transparent;border:none;cursor:pointer;font-size:1.2rem;color:var(--text-primary);display:flex;align-items:center;justify-content:center;transition:color var(--trans),transform var(--trans);padding:0;}
+.theme-toggle:hover{color:var(--rose);transform:scale(1.1);}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hamburger span{width:26px;height:2px;background:var(--text-primary);transition:var(--trans);}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(6px,6px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
+
+.mobile-menu{position:fixed;top:0;right:-100%;width:min(340px,80vw);height:100dvh;background:var(--noir);z-index:999;padding:110px 36px 40px;display:flex;flex-direction:column;gap:2rem;transition:right 0.5s cubic-bezier(0.77,0,0.175,1);}
+.mobile-menu.open{right:0;}
+.mobile-menu a{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--cream);text-decoration:none;opacity:0;transform:translateX(30px);transition:opacity 0.4s,transform 0.4s,color var(--trans);}
+.mobile-menu.open a{opacity:1;transform:translateX(0);}
+.mobile-menu.open a:nth-child(1){transition-delay:0.12s;}
+.mobile-menu.open a:nth-child(2){transition-delay:0.2s;}
+.mobile-menu.open a:nth-child(3){transition-delay:0.28s;}
+.mobile-menu.open a:nth-child(4){transition-delay:0.36s;}
+.mobile-menu a:hover{color:var(--rose);}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.4s;}
+.overlay.open{opacity:1;pointer-events:all;}
+
+/* Hero Section */
+#home{position:relative;height:100dvh;min-height:680px;overflow:hidden;display:flex;align-items:flex-end;padding-bottom:clamp(4rem,10vh,8rem);}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a0f0a 0%,#261814 40%,#1c1212 100%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(174,70,103,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(174,70,103,0.05) 1px,transparent 1px);background-size:80px 80px;animation:gridShift 20s linear infinite;}
+@keyframes gridShift{from{background-position:0 0;}to{background-position:80px 80px;}}
+.hero-circle{position:absolute;border-radius:50%;filter:blur(80px);animation:pulse 6s ease-in-out infinite alternate;}
+.hero-circle:nth-child(1){width:500px;height:500px;background:rgba(174,70,103,0.2);top:-100px;right:-50px;}
+.hero-circle:nth-child(2){width:350px;height:350px;background:rgba(201,169,110,0.12);bottom:0;left:-80px;}
+.hero-circle:nth-child(3){width:250px;height:250px;background:rgba(232,196,184,0.1);top:40%;left:30%;}
+@keyframes pulse{from{transform:scale(1);}to{transform:scale(1.15);}}
+.hero-content{position:relative;z-index:2;padding:0 5%;}
+.hero-tag{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s 1.8s forwards;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,8vw,7rem);line-height:1.05;color:var(--cream);margin-bottom:2rem;overflow:hidden;}
+.hero-title .line{opacity:0;transform:translateY(100%);animation:slideUp 0.9s forwards;}
+.hero-title .line:nth-child(1){animation-delay:2s;}
+.hero-title .line:nth-child(2){animation-delay:2.2s;}
+.hero-title em{font-style:italic;color:var(--blush);}
+@keyframes slideUp{to{opacity:1;transform:translateY(0);}}
+.hero-sub{max-width:420px;font-size:0.95rem;font-weight:300;line-height:1.8;color:rgba(250,247,242,0.7);margin-bottom:3rem;opacity:0;animation:fadeUp 0.8s 2.5s forwards;}
+.btn-primary-v{display:inline-flex;align-items:center;gap:0.8rem;background:var(--rose);color:#fff;padding:1rem 2.2rem;font-size:0.78rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:transform var(--trans),box-shadow var(--trans),background var(--trans);}
+.btn-primary-v:hover{background:#913b57;transform:translateY(-2px);box-shadow:0 12px 30px rgba(174,70,103,0.4);}
+.btn-ghost-v{display:inline-flex;align-items:center;gap:0.8rem;background:transparent;color:var(--cream);padding:1rem 2.2rem;font-size:0.78rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(250,247,242,0.35);cursor:pointer;transition:all var(--trans);}
+.btn-ghost-v:hover{border-color:var(--rose);color:var(--rose);}
+.hero-scroll{position:absolute;bottom:2.5rem;right:5%;display:flex;align-items:center;gap:0.8rem;color:rgba(250,247,242,0.4);font-size:0.7rem;z-index:2;}
+.scroll-line{width:60px;height:1px;background:rgba(250,247,242,0.2);position:relative;overflow:hidden;}
+.scroll-line::after{content:'';position:absolute;inset:0;background:var(--rose);animation:scrollAnim 2s ease-in-out infinite;}
+@keyframes scrollAnim{0%{transform:scaleX(0) translateX(0);}50%{transform:scaleX(1) translateX(0);}100%{transform:scaleX(0) translateX(100%);}}
+.hero-stats{position:absolute;bottom:3rem;left:5%;display:flex;gap:3rem;z-index:2;opacity:0;animation:fadeUp 0.8s 3.2s forwards;}
+.stat{border-left:1px solid rgba(250,247,242,0.15);padding-left:1.5rem;}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--cream);}
+.stat-label{font-size:0.68rem;letter-spacing:0.18em;color:rgba(250,247,242,0.45);text-transform:uppercase;}
+
+/* Marquee */
+.marquee-strip{background:var(--rose);padding:14px 0;overflow:hidden;}
+.marquee-track{display:flex;gap:3rem;animation:marquee 20s linear infinite;white-space:nowrap;}
+.marquee-track span{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:#fff;font-weight:500;}
+.marquee-track .dot{width:5px;height:5px;background:rgba(255,255,255,0.5);border-radius:50%;flex-shrink:0;align-self:center;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+section{padding:clamp(4rem,10vw,8rem) 5%;}
+.section-tag{font-size:0.7rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;color:var(--text-primary);}
+.section-title em{font-style:italic;color:var(--rose);}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;gap:2rem;flex-wrap:wrap;}
+
+/* Categories */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.cat-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/4;border-radius:2px;}
+.cat-card.wide{grid-column:span 2;}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.1) 60%,transparent 100%);}
+.cat-info{position:absolute;bottom:0;left:0;right:0;padding:2rem 1.8rem;}
+.cat-label{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;}
+.cat-name{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.5vw,1.8rem);color:#fff;line-height:1.2;}
+.cat-arrow{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;border:1px solid rgba(255,255,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.8rem;opacity:0;transform:translateY(-8px);transition:var(--trans);}
+.cat-card:hover .cat-arrow{opacity:1;transform:translateY(0);}
+
+/* Products Grid */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2rem;}
+.prod-card{background:var(--card-bg);position:relative;overflow:hidden;transition:box-shadow var(--trans);border-radius:12px;}
+.prod-card:hover{box-shadow:0 20px 40px rgba(0,0,0,0.08);}
+.prod-img-wrap{position:relative;overflow:hidden;aspect-ratio:3/4;}
+.prod-badge{position:absolute;top:1rem;left:1rem;background:var(--rose);color:#fff;font-size:0.62rem;font-weight:600;letter-spacing:0.1em;padding:4px 12px;z-index:2;border-radius:20px;}
+.prod-actions{position:absolute;bottom:-52px;left:0;right:0;display:flex;gap:0;transition:bottom var(--trans);z-index:3;}
+.prod-card:hover .prod-actions{bottom:0;}
+.prod-actions button{flex:1;padding:14px;background:var(--noir);color:#fff;border:none;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:background var(--trans);}
+.prod-actions button:hover{background:var(--rose);}
+.prod-info{padding:1.2rem 1.4rem;}
+.prod-tag{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:0.4rem;}
+.prod-name{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.6rem;color:var(--text-primary);}
+.prod-price{display:flex;gap:0.8rem;align-items:center;}
+.price-now{font-weight:600;color:var(--rose);}
+.price-old{font-size:0.85rem;color:#bbb;text-decoration:line-through;}
+.wishlist-btn{position:absolute;top:1rem;right:1rem;width:36px;height:36px;background:#fff;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;color:#ccc;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:var(--trans);z-index:4;}
+.wishlist-btn.active,.wishlist-btn:hover{color:var(--rose);}
+.filter-btn{padding:8px 20px;border:1px solid var(--border-color);background:var(--card-bg);font-family:'Jost',sans-serif;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;border-radius:40px;color:var(--text-primary);}
+.filter-btn.active,.filter-btn:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+
+.banner-split{display:grid;grid-template-columns:1fr 1fr;min-height:500px;overflow:hidden;}
+.ban-left{background:var(--noir);display:flex;align-items:center;padding:clamp(3rem,8vw,6rem);}
+.ban-right{background:linear-gradient(145deg,#c9a96e22,#ae466744),linear-gradient(#2d1b14,#1a0f0a);display:flex;align-items:center;justify-content:center;}
+
+.feat-strip{background:var(--noir);padding:clamp(3rem,8vw,6rem) 5%;overflow:hidden;}
+.feat-slider{display:flex;gap:1.5rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:none;}
+.feat-slider::-webkit-scrollbar{display:none;}
+.feat-item{flex:0 0 280px;cursor:pointer;}
+.feat-item-info{padding:1.2rem 0;}
+.feat-item-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:0.3rem;}
+.feat-item-price{font-size:0.85rem;color:var(--gold);}
+.feat-dots{display:flex;gap:8px;margin-top:2rem;}
+.feat-dot{width:24px;height:2px;background:rgba(255,255,255,0.2);cursor:pointer;transition:background var(--trans),width var(--trans);}
+.feat-dot.active{background:var(--rose);width:48px;}
+
+.testi-wrap{background:var(--soft);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.testi-card{background:var(--card-bg);padding:2rem 2rem;position:relative;border-radius:4px;}
+.testi-card::before{content:'\201C';font-family:'Playfair Display',serif;font-size:4.8rem;color:var(--blush);position:absolute;top:0.5rem;left:1.8rem;line-height:1;}
+.testi-text{font-style:italic;margin-top:2rem;margin-bottom:1.5rem;color:var(--text-secondary);}
+.testi-stars i{color:var(--gold);}
+.testi-author{display:flex;gap:1rem;align-items:center;}
+.testi-av{width:42px;height:42px;background:var(--blush);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;color:var(--rose);}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;}
+.contact-detail{display:flex;gap:1rem;margin-bottom:1.5rem;}
+.contact-icon{width:44px;height:44px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--rose);border-radius:12px;}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.form-group{display:flex;flex-direction:column;gap:0.5rem;}
+.form-group input,.form-group textarea,.form-group select{padding:12px 16px;border:1px solid var(--border-color);background:var(--card-bg);font-family:inherit;outline:none;border-radius:8px;color:var(--text-primary);}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--rose);}
+
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;}
+.about-vals{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0;}
+.val-item{border-left:2px solid var(--rose);padding-left:1rem;}
+
+.newsletter{background:var(--rose);padding:clamp(3rem,8vw,5rem) 5%;text-align:center;}
+.newsletter h2{color:#fff;}
+.newsletter p{color:rgba(255,255,255,0.8);}
+.nl-form{display:flex;max-width:520px;margin:0 auto;}
+.nl-form input{flex:1;padding:14px 20px;border:none;outline:none;border-radius:40px 0 0 40px;}
+.nl-form button{padding:14px 28px;background:var(--noir);color:#fff;border:none;cursor:pointer;font-weight:600;letter-spacing:0.1em;border-radius:0 40px 40px 0;}
+
+footer{background:var(--footer-bg);color:rgba(250,247,242,0.5);padding:clamp(3rem,8vw,5rem) 5% 2rem;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--cream);margin-bottom:1rem;}
+.soc-btn{width:38px;height:38px;border:1px solid rgba(255,255,255,0.1);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.4);margin-right:8px;transition:var(--trans);text-decoration:none;border-radius:50%;}
+.soc-btn:hover{border-color:var(--rose);color:var(--rose);}
+.footer-col h4{font-size:0.75rem;letter-spacing:0.2em;color:var(--cream);margin-bottom:1.2rem;}
+.footer-col ul{list-style:none;padding:0;}
+.footer-col li{margin-bottom:0.7rem;}
+.footer-col a{color:rgba(250,247,242,0.45);text-decoration:none;font-size:0.85rem;}
+.footer-col a:hover{color:var(--rose);}
+
+.toast-msg{position:fixed;bottom:2rem;right:2rem;background:var(--noir);color:var(--cream);padding:12px 24px;z-index:9999;transform:translateY(80px);opacity:0;transition:var(--trans);border-left:4px solid var(--rose);border-radius:8px;}
+.toast-msg.show{transform:translateY(0);opacity:1;}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s,transform 0.8s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:0.8s;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(40px);transition:0.8s;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+
+@media(max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);}.cat-card.wide{grid-column:span 2;}}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}.testi-grid{grid-template-columns:1fr;}}
+@media(max-width:800px){.nav-links{display:none;}.hamburger{display:flex;}.hero-stats{display:none;}.about-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:650px){.cat-grid{grid-template-columns:1fr;}.cat-card.wide{grid-column:span 1;}.banner-split{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curRing"></div>
+<div id="loader"><img src="logo.png" alt="S&S Collection Logo" class="l-logo" onerror="this.src='https://placehold.co/200x80?text=S%26S'"><div class="l-bar"><div class="l-fill"></div></div></div>
+<div class="overlay" id="overlay"></div>
+<div class="mobile-menu" id="mobileMenu"><a href="fashion.html">Home</a><a href="products.html">Products</a><a href="#contact">Contact Us</a><a href="#about">About Us</a></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo"><img src="logo.png" alt="S & S Collection" class="logo-img" onerror="this.src='https://placehold.co/200x70?text=S%26S'"></a>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="Products.html">Products</a></li>
+      <li><a href="contact us.html">Contact Us</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-icons">
+        <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light Mode"><i class="fas fa-moon"></i></button>
+        <a href="#" aria-label="Search"><i class="fas fa-search"></i></a>
+        <a href="#" aria-label="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="#" class="cart-badge"><i class="fas fa-shopping-bag"></i><span id="cartCount">0</span></a>
+      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-circle"></div><div class="hero-circle"></div><div class="hero-circle"></div>
+  <div class="hero-content">
+    <div class="hero-tag">New Collection — 2026</div>
+    <h1 class="hero-title"><div class="line">Dress with</div><div class="line"><em>Confidence.</em></div></h1>
+    <p class="hero-sub">Curated ladies fashion — from everyday elegance to bold statements. Every piece is you.</p>
+    <div class="hero-actions"><a href="#products" class="btn-primary-v">Shop Now <i class="fas fa-arrow-right"></i></a><a href="#about" class="btn-ghost-v">Our Story</a></div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+  <div class="stat-label">Designs</div></div></div>
+</section>
+
+<div class="marquee-strip"><div class="marquee-track" id="mTrack"></div></div>
+
+<!-- Categories Section -->
+<section id="products">
+  <div class="section-head reveal"><div><div class="section-tag">Shop by Category</div><h2 class="section-title">Find Your <em>Style</em></h2></div><a href="#" class="see-all" id="viewAllCategories">View All <i class="fas fa-arrow-right"></i></a></div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- Banner -->
+<div class="banner-split">
+  <div class="ban-left"><div class="ban-left-content reveal-left"><div class="tag" style="color:var(--gold);letter-spacing:0.3em;margin-bottom:1rem;">Limited Edition</div><h2 style="font-family:'Playfair Display';font-size:clamp(2rem,4vw,3rem);color:var(--cream);">The <em style="color:var(--rose);">Summer</em><br>Collection 2026</h2><p style="color:rgba(250,247,242,0.6);margin:1.5rem 0 2rem;">Lightweight fabrics, bold prints, and silhouettes crafted for the modern woman.</p><a href="#products" class="btn-primary-v">Explore Collection <i class="fas fa-arrow-right"></i></a></div></div>
+  <div class="ban-right"><div style="text-align:center;"><div style="font-family:'Playfair Display';font-size:clamp(3rem,8vw,6rem);color:rgba(255,255,255,0.07);">SUMMER<br>2026</div><div style="width:70px;height:1px;background:var(--rose);margin:2rem auto;"></div><div style="color:var(--gold);letter-spacing:0.3em;">Shop Now →</div></div></div>
+</div>
+
+<!-- Featured Picks -->
+<div class="feat-strip"><div class="section-head reveal"><div><div class="section-tag" style="color:var(--gold);">Handpicked For You</div><h2 class="section-title" style="color:var(--cream);">Featured <em style="color:var(--rose);">Picks</em></h2></div><a href="#products" class="see-all" style="color:var(--gold);border-color:var(--gold);">View All <i class="fas fa-arrow-right"></i></a></div><div class="feat-slider" id="featSlider"></div><div class="feat-dots" id="featDots"></div></div>
+
+<!-- Products Grid -->
+<section style="background:var(--bg-primary);">
+  <div class="section-head reveal"><div><div class="section-tag">Trending Now</div><h2 class="section-title">New <em>Arrivals</em></h2></div><div style="display:flex;gap:0.8rem;flex-wrap:wrap;" id="filterContainer"><button class="filter-btn active" data-filter="all">All</button><button class="filter-btn" data-filter="dress">Dresses</button><button class="filter-btn" data-filter="jeans">Jeans</button><button class="filter-btn" data-filter="jewel">Jewellery</button><button class="filter-btn" data-filter="bags">Bags</button></div></div>
+  <div class="products-grid" id="productsGrid"></div>
+  <div style="text-align:center;margin-top:3rem;"><button class="btn-primary-v" id="loadMoreBtn" style="display:inline-flex;">Load More <i class="fas fa-plus"></i></button></div>
+</section>
+
+<!-- Testimonials -->
+<section class="testi-wrap"><div class="section-head reveal"><div><div class="section-tag">What They Say</div><h2 class="section-title">Customer <em>Love</em></h2></div></div><div class="testi-grid" id="testiGrid"></div></section>
+
+<!-- Contact -->
+<section id="contact"><div class="contact-grid"><div class="contact-info reveal-left"><div class="section-tag">Get In Touch</div><h2 class="section-title">We'd Love To <em>Hear</em> From You</h2><p>Whether it's about an order, styling advice, or wholesale — our team is here to help.</p><div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Our Store</h4><p>Imadol, Lalitpur, Bagmati, Nepal</p></div></div><div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div><h4>Phone</h4><p>+977 9812345678</p></div></div><div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>hello@snscollection.com</p></div></div></div><div class="reveal-right"><div class="contact-form" id="contactForm"><div class="form-row"><div class="form-group"><label>First Name</label><input type="text" id="fname"></div><div class="form-group"><label>Last Name</label><input type="text" id="lname"></div></div><div class="form-group"><label>Email</label><input type="email" id="email"></div><div class="form-group"><label>Subject</label><select id="subject"><option>Order Inquiry</option><option>Product Question</option></select></div><div class="form-group"><label>Message</label><textarea rows="4" id="msg"></textarea></div><button class="btn-primary-v" id="sendMsgBtn">Send Message <i class="fas fa-paper-plane"></i></button></div></div></div></section>
+
+<!-- About -->
+<section id="about"><div class="about-grid"><div class="about-imgs reveal-left"><div style="height:450px;background:linear-gradient(145deg,#1a0f0a,#2d1b14);display:flex;align-items:center;justify-content:center;border-radius:16px;"><div style="text-align:center;"><div style="font-family:'Playfair Display';font-size:4rem;color:rgba(255,255,255,0.06);">SINCE<br>2024</div><div style="width:60px;height:2px;background:var(--rose);margin:1.5rem auto;"></div><div style="color:var(--gold);letter-spacing:0.2em;">S & S Collection</div></div></div></div><div class="about-content reveal-right"><div class="section-tag">Our Story</div><h2 class="section-title">Fashion That Tells <em style="color:var(--rose);">Your Story</em></h2><p>Founded in 2018, S & S Collection began with a simple belief: every woman deserves fashion that makes her feel seen. From our boutique in Lalitpur, we've grown into a beloved destination for women who love style without compromise.</p><div class="about-vals"><div class="val-item"><h4>Quality First</h4><p>Hand-curated fabrics</p></div><div class="val-item"><h4>Inclusive Sizing</h4><p>Free-size & extended ranges</p></div></div><a href="#contact" class="btn-primary-v">Work With Us <i class="fas fa-arrow-right"></i></a></div></div></section>
+
+<!-- Newsletter -->
+<div class="newsletter"><div class="reveal"><h2>Stay in the Loop</h2><p>Get exclusive offers & style tips.</p><div class="nl-form"><input type="email" placeholder="Your email" id="nlEmail"><button id="nlBtn">Subscribe</button></div></div></div>
+
+<!-- Footer -->
+<footer><div class="footer-grid"><div><div class="footer-logo">S & S Collection</div><p>Where elegance meets everyday wear.</p><div class="footer-social"><a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a><a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a></div></div><div class="footer-col"><h4>Shop</h4><ul><li><a href="#products">Dresses & Tops</a></li><li><a href="#products">Jeans & Pants</a></li><li><a href="#products">Jewellery</a></li></ul></div><div class="footer-col"><h4>Help</h4><ul><li><a href="#contact">Contact Us</a></li><li><a href="#">Returns</a></li></ul></div><div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#">Wholesale</a></li></ul></div></div><div class="footer-bottom"><p>© 2026 <span style="color:var(--rose);">S & S Collection</span>. All rights reserved.</p></div></footer>
+
+<div class="toast-msg" id="toast"></div>
+
+<script>
+// Dark/Light Mode Toggle
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+
+if(localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  themeIcon.classList.remove('fa-moon');
+  themeIcon.classList.add('fa-sun');
+}
+
+themeToggle.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.body.classList.toggle('dark-mode');
+  if(document.body.classList.contains('dark-mode')) {
+    localStorage.setItem('theme', 'dark');
+    themeIcon.classList.remove('fa-moon');
+    themeIcon.classList.add('fa-sun');
+  } else {
+    localStorage.setItem('theme', 'light');
+    themeIcon.classList.remove('fa-sun');
+    themeIcon.classList.add('fa-moon');
+  }
+});
+
+// Products Data
+const fullProductsList = [
+  {name:'Floral Midi Dress',tag:'dress',price:'Rs 1,800',old:'Rs 2,400',badge:'Sale',stars:5},
+  {name:'High-Waist Skinny Jeans',tag:'jeans',price:'Rs 2,200',old:'',badge:'New',stars:5},
+  {name:'Gold Layered Necklace',tag:'jewel',price:'Rs 950',old:'Rs 1,200',badge:'Trending',stars:4},
+  {name:'Leather Tote Bag',tag:'bags',price:'Rs 3,500',old:'',badge:'New',stars:5},
+  {name:'Lace Bralette Set',tag:'dress',price:'Rs 1,100',old:'Rs 1,400',badge:'Sale',stars:4},
+  {name:'Oversized Shirt',tag:'dress',price:'Rs 1,350',old:'',badge:'',stars:5},
+  {name:'Pearl Drop Earrings',tag:'jewel',price:'Rs 650',old:'',badge:'New',stars:5},
+  {name:'Embroidered Kurti',tag:'dress',price:'Rs 2,100',old:'Rs 2,600',badge:'Sale',stars:4},
+  {name:'Denim Jacket',tag:'jeans',price:'Rs 3,200',old:'Rs 4,000',badge:'',stars:5},
+  {name:'Crossbody Bag',tag:'bags',price:'Rs 2,450',old:'',badge:'Trending',stars:5}
+];
+
+let displayedCount = 8;
+let activeFilter = 'all';
+const colorsBg = ['#ae4667','#2d1b14','#c9a96e','#3a2a2a','#1f2a3d','#2a1d2a','#1a2a1a','#2a2010','#8b5a2b','#4a2e2e'];
+
+function renderProducts() {
+  let filtered = activeFilter === 'all' ? fullProductsList : fullProductsList.filter(p => p.tag === activeFilter);
+  const toShow = filtered.slice(0, displayedCount);
+  const grid = document.getElementById('productsGrid');
+  if(!grid) return;
+  grid.innerHTML = toShow.map((p,i)=>`<div class="prod-card" data-tag="${p.tag}"><div class="prod-img-wrap"><div style="width:100%;height:100%;background:linear-gradient(135deg,${colorsBg[i%colorsBg.length]},${colorsBg[(i+1)%colorsBg.length]});display:flex;align-items:center;justify-content:center;"><div style="font-family:'Playfair Display';font-size:2rem;color:rgba(255,255,255,0.15);">${p.name.substring(0,6)}</div></div>${p.badge?`<div class="prod-badge">${p.badge}</div>`:''}<div class="prod-actions"><button onclick="addCart('${p.name.replace(/'/g, "\\'")}')">Add to Cart</button><button class="wish" onclick="addWish(this)"><i class="far fa-heart"></i></button></div></div><button class="wishlist-btn" onclick="addWish(this)"><i class="far fa-heart"></i></button><div class="prod-info"><div class="prod-tag">${p.tag.toUpperCase()}</div><div class="prod-name">${p.name}</div><div class="prod-price"><span class="price-now">${p.price}</span>${p.old?`<span class="price-old">${p.old}</span>`:''}</div><div class="prod-stars">${'<i class="fas fa-star"></i>'.repeat(p.stars)}${'<i class="far fa-star"></i>'.repeat(5-p.stars)}</div></div></div>`).join('');
+  const loadBtn = document.getElementById('loadMoreBtn');
+  if(loadBtn){
+    let filteredTotal = activeFilter === 'all' ? fullProductsList.length : fullProductsList.filter(p => p.tag === activeFilter).length;
+    loadBtn.style.display = displayedCount >= filteredTotal ? 'none' : 'inline-flex';
+  }
+}
+
+window.addCart = function(name){ let cnt = document.getElementById('cartCount'); let cur = parseInt(cnt.innerText); cnt.innerText = cur+1; showToast(`✓ ${name} added to cart`); };
+window.addWish = function(btn){ btn.classList.toggle('active'); const icon = btn.querySelector('i'); if(icon) icon.className = btn.classList.contains('active')?'fas fa-heart':'far fa-heart'; showToast(btn.classList.contains('active')?'Added to wishlist':'Removed from wishlist'); };
+function showToast(msg){ const t=document.getElementById('toast'); t.innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2800); }
+
+document.getElementById('loadMoreBtn')?.addEventListener('click',()=>{ displayedCount += 4; renderProducts(); });
+document.querySelectorAll('.filter-btn').forEach(btn=>{ btn.addEventListener('click',()=>{ activeFilter = btn.dataset.filter; displayedCount=8; document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderProducts(); }); });
+document.getElementById('sendMsgBtn')?.addEventListener('click',()=>{ let fname=document.getElementById('fname')?.value, email=document.getElementById('email')?.value; if(!fname || !email) showToast('Please fill name and email'); else showToast('✨ Message sent! We will reply soon.'); });
+document.getElementById('nlBtn')?.addEventListener('click',()=>{ let em=document.getElementById('nlEmail')?.value; if(em) showToast('📬 Subscribed! Stay tuned.'); else showToast('Enter email address'); });
+
+const categories = [{name:"Dresses & Tops",label:"New In",count:""},{name:"Jeans & Pants",label:"Bestseller",count:""},{name:"Bra & Lingerie",label:"Comfort",count:""},{name:"Shirts & Blouses",label:"Free Size",count:""},{name:"Jewellery",label:"Handcrafted",count:""},{name:"Bags & Purses",label:"Trending",count:""},{name:"Footwear",label:"New",count:""},{name:"Kurti & Ethnic",label:"Ethnic",count:""}];
+const catGrid=document.getElementById('catGrid'); if(catGrid) catGrid.innerHTML=categories.map((c,i)=>`<div class="cat-card ${i===0?'wide':''}" style="background:linear-gradient(145deg,#2d1b14,#0a0a0a);"><div class="cat-overlay"></div><div class="cat-info"><div class="cat-label">${c.label}</div><div class="cat-name">${c.name}</div><div class="cat-count">${c.count} Items</div></div><div class="cat-arrow"><i class="fas fa-arrow-right"></i></div></div>`).join('');
+
+const marqueeWords=['New Arrivals','Free Size Shirts','Ladies Dresses','Bra & Lingerie','Ethnic Kurti','Jewellery','Designer Bags','Summer 2026','Trending Styles'];
+const mTrack=document.getElementById('mTrack'); if(mTrack){ let mHtml=''; for(let i=0;i<3;i++) marqueeWords.forEach(w=>{mHtml+=`<span>${w}</span><div class="dot"></div>`;}); mTrack.innerHTML=mHtml; }
+
+const featItems=[{name:'Silk Evening Dress',price:'Rs 4,200'},{name:'Summer Floral Blouse',price:'Rs 1,500'},{name:'Chic Handbag',price:'Rs 2,800'},{name:'Gold Choker Set',price:'Rs 1,100'}];
+const featSlider=document.getElementById('featSlider'); if(featSlider){ featSlider.innerHTML=featItems.map(f=>`<div class="feat-item"><div style="aspect-ratio:3/4;background:#1f2a3d;display:flex;align-items:center;justify-content:center;border-radius:12px;"><div style="font-family:'Playfair Display';color:rgba(255,255,255,0.1);font-size:2rem;">${f.name.split(' ')[0]}</div></div><div class="feat-item-info"><div class="feat-item-name">${f.name}</div><div class="feat-item-price">${f.price}</div></div></div>`).join(''); }
+const featDots=document.getElementById('featDots'); if(featDots){ featDots.innerHTML=featItems.map((_,i)=>`<div class="feat-dot ${i===0?'active':''}" onclick="scrollFeat(${i})"></div>`).join(''); }
+window.scrollFeat=function(i){ const slider=document.getElementById('featSlider'); if(slider) slider.scrollTo({left:i*300,behavior:'smooth'}); document.querySelectorAll('.feat-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i)); };
+
+//document.getElementById('testiGrid').innerHTML=`<div class="testi-card"><div class="testi-text">"I ordered the rose midi dress and I haven't stopped getting compliments. Quality is unmatched."</div><div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testi-author"><div class="testi-av">S</div><div>Sita Sharma<br><span style="font-size:0.7rem;">Kathmandu</span></div></div></div><div class="testi-card"><div class="testi-text">"Jewellery collection is absolutely gorgeous — delicate, well-made and affordable."</div><div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><div class="testi-author"><div class="testi-av">P</div><div>Priya Rai<br><span style="font-size:0.7rem;">Pokhara</span></div></div></div><div class="testi-card"><div class="testi-text">"S & S Collection free-size shirts fit perfectly, fabric feels premium. Will order again!"</div><div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div><div class="testi-author"><div class="testi-av">A</div><div>Anisha KC<br><span style="font-size:0.7rem;">Lalitpur</span></div></div></div>`;//
+renderProducts();
+
+// Loader
+window.addEventListener('load',()=>{ setTimeout(()=>{ let l=document.getElementById('loader'); if(l){ l.style.opacity='0'; setTimeout(()=>l.style.display='none',600); } },1800); });
+
+// Cursor
+const cur=document.getElementById('cur'), ring=document.getElementById('curRing');
+document.addEventListener('mousemove',e=>{ if(cur){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';} if(ring){ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';} });
+document.querySelectorAll('a,button,.cat-card,.prod-card').forEach(el=>{ el.addEventListener('mouseenter',()=>ring?.classList.add('expand')); el.addEventListener('mouseleave',()=>ring?.classList.remove('expand')); });
+
+// Nav scroll
+const navBar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{ navBar?.classList.toggle('scrolled',window.scrollY>60); document.querySelectorAll('section[id]').forEach(sec=>{ let top=sec.offsetTop-100,bot=top+sec.offsetHeight; if(window.scrollY>=top&&window.scrollY<bot){ document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active')); let a=document.querySelector(`.nav-links a[href="#${sec.id}"]`); if(a)a.classList.add('active'); } }); });
+
+// Mobile menu
+const ham=document.getElementById('hamburger'), mob=document.getElementById('mobileMenu'), ov=document.getElementById('overlay');
+ham?.addEventListener('click',()=>{ ham.classList.toggle('open'); mob?.classList.toggle('open'); ov?.classList.toggle('open'); });
+ov?.addEventListener('click',()=>{ ham?.classList.remove('open'); mob?.classList.remove('open'); ov?.classList.remove('open'); });
+document.querySelectorAll('.mobile-menu a')?.forEach(a=>a.addEventListener('click',()=>{ ham?.classList.remove('open'); mob?.classList.remove('open'); ov?.classList.remove('open'); }));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',e=>{ const t=document.querySelector(a.getAttribute('href')); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); } }); });
+
+// Reveal animations
+const observer=new IntersectionObserver(entries=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); observer.unobserve(en.target); } }); },{threshold:0.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
+document.getElementById('viewAllCategories')?.addEventListener('click',(e)=>{ e.preventDefault(); document.getElementById('products')?.scrollIntoView({behavior:'smooth'}); });
+</script>
+</body>
+</html>
