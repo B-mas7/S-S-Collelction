@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Contact Us | S & S Collection</title>
+<title>About Us | S & S Collection</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -81,7 +81,7 @@ nav.scrolled{box-shadow:0 8px 30px var(--shadow-color);}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;opacity:0;pointer-events:none;transition:0.3s;}
 .overlay.open{opacity:1;pointer-events:all;}
 
-/* Hero Banner Style */
+/* Hero Header Banner */
 .page-hero {
   padding: 140px 5% 60px;
   background: linear-gradient(135deg, #11090c 0%, var(--bg-dark-accent) 100%);
@@ -99,178 +99,130 @@ nav.scrolled{box-shadow:0 8px 30px var(--shadow-color);}
   letter-spacing: 0.05em;
 }
 
-/* Contact Main Section Layout */
-.contact-wrapper {
+/* Sections Basic Structure */
+section {
   padding: 80px 5%;
 }
-.contact-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-}
-
 .section-tag{font-size:0.7rem;letter-spacing:0.3em;color:var(--brand-primary);margin-bottom:1rem;text-transform:uppercase;}
-.section-title{font-family:'Playfair Display',serif;font-size:2.5rem;margin-bottom:1.5rem;color:var(--text-primary);}
+.section-title{font-family:'Playfair Display',serif;font-size: clamp(2rem, 4vw, 2.75rem);margin-bottom:1.5rem;color:var(--text-primary);}
 .section-title em{color:var(--brand-primary);font-style:italic;}
 
-/* Contact Info Details */
-.info-card-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-.info-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.2rem;
-}
-.info-icon-box {
-  width: 50px;
-  height: 50px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  display: flex;
+/* Story Block Grid Layout */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
   align-items: center;
-  justify-content: center;
-  color: var(--brand-primary);
-  font-size: 1.2rem;
-  box-shadow: 0 4px 10px var(--shadow-color);
-  flex-shrink: 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.info-content h5 {
-  font-weight: 600;
-  margin-bottom: 4px;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-}
-.info-content p {
+.story-text p {
   color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.6;
-}
-
-.social-connect {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border-color);
-}
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.social-icons a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--noir);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-body.dark-mode .social-icons a { background: var(--brand-primary); }
-.social-icons a:hover {
-  background: var(--brand-primary);
-  transform: translateY(-3px);
-  opacity: 0.9;
-}
-
-/* Luxury Interactive Form */
-.form-card {
-  background: var(--bg-secondary);
-  padding: 3rem;
-  border-radius: 24px;
-  box-shadow: 0 10px 40px var(--shadow-color);
-  border: 1px solid var(--border-color);
-}
-.form-floating-custom {
-  position: relative;
+  line-height: 1.8;
+  font-size: 1.05rem;
   margin-bottom: 1.5rem;
 }
-.form-floating-custom input, .form-floating-custom textarea {
-  width: 100%;
-  padding: 14px 18px;
-  background: var(--input-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-family: inherit;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s;
-}
-.form-floating-custom input:focus, .form-floating-custom textarea:focus {
-  border-color: var(--brand-primary);
-}
-.form-floating-custom label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-primary);
-}
 
-.btn-submit {
-  width: 100%;
-  background: var(--noir);
-  color: #fff;
-  border: none;
-  padding: 14px;
-  border-radius: 40px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-body.dark-mode .btn-submit { background: var(--brand-primary); }
-.btn-submit:hover {
-  background: var(--brand-primary);
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
-
-/* Map Section */
-.map-section {
-  width: 100%;
-  height: 400px;
+/* Counter / Stats Metric Showcase Block */
+.stats-banner {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 5px 25px var(--shadow-color);
 }
-.map-section iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  filter: grayscale(20%);
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
-body.dark-mode .map-section iframe {
-  filter: invert(90%) hue-rotate(180deg) grayscale(30%);
+.stat-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--brand-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.stat-card p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.toast-msg{position:fixed;bottom:2rem;right:2rem;background:var(--footer-bg);color:white;padding:12px 24px;border-radius:40px;z-index:10001;transform:translateY(80px);opacity:0;transition:0.3s;border-left:4px solid var(--brand-primary);box-shadow:0 10px 30px rgba(0,0,0,0.15);}
-.toast-msg.show{transform:translateY(0);opacity:1;}
+/* Core Values Component Card Styling */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto 0;
+}
+.value-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px var(--shadow-color);
+}
+.value-icon {
+  font-size: 2rem;
+  color: var(--brand-primary);
+  margin-bottom: 1.5rem;
+}
+.value-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+.value-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
 
-/* Footer Elements */
+/* Image Visual Placeholder frame */
+.visual-frame {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #11090c 0%, var(--bg-dark-accent) 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 15px 35px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+.visual-frame i {
+  font-size: 6rem;
+  color: rgba(255, 255, 255, 0.12);
+}
+
+/* Footer Section */
 footer{background:var(--footer-bg);color:rgba(250,247,242,0.5);padding:3rem 5% 2rem;border-top:1px solid var(--border-color);}
 footer h3, footer h4{color:#fff;}
 footer a{color:rgba(250,247,242,0.5);text-decoration:none;transition:0.3s;}
 footer a:hover{color:var(--brand-primary);}
 
 @media(max-width:992px){
-  .contact-container { grid-template-columns: 1fr; gap: 3rem; }
-  .form-card { padding: 2rem; }
+  .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+}
+@media(max-width:768px) {
+  .values-grid { grid-template-columns: 1fr; }
 }
 @media(max-width:800px){
   .nav-links{display:none;}
@@ -296,8 +248,8 @@ footer a:hover{color:var(--brand-primary);}
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="Products.html">Products</a></li>
-      <li><a href="contact us.html" class="active">Contact</a></li>
-      <li><a href="About us.html">About</a></li>
+      <li><a href="contact us.html">Contact</a></li>
+      <li><a href="About us.html" class="active">About</a></li>
     </ul>
     
     <div class="nav-right">
@@ -314,104 +266,70 @@ footer a:hover{color:var(--brand-primary);}
 </nav>
 
 <div class="page-hero">
-  <h1>Contact Us</h1>
-  <p>Home &nbsp;//&nbsp; Contact Us</p>
+  <h1>About Our Boutique</h1>
+  <p>Home  //  Our Story</p>
 </div>
 
-<section class="contact-wrapper">
-  <div class="contact-container">
-    
-    <div class="contact-info-panel">
-      <div class="section-tag">Reach Out</div>
-      <h2 class="section-title">We'd Love <em>To Assist</em> You</h2>
-      <p style="color:var(--text-secondary); line-height: 1.7; margin-bottom: 2rem;">
-        Have a question about sizing, custom delivery details, or tracking your premium purchase? Drop us a message or find us direct on our channels. Our team answers within a few hours.
+<section>
+  <div class="story-grid">
+    <div class="story-text">
+      <div class="section-tag">Since 2018</div>
+      <h2 class="section-title">Crafting Elegance, <em>Celebrating You</em></h2>
+      <p>
+        S&S Collection began with a foundational philosophy: premium fashion should celebrate individual expression without being inaccessible. Nestled in Imadol, Lalitpur, we curate diverse, high-caliber segments crossing women's and men's apparel, delicate jewellery suites, statement bags, and meticulous lingerie essentials.
       </p>
-      
-      <div class="info-card-group">
-        <div class="info-item">
-          <div class="info-icon-box"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="info-content">
-            <h5>Address</h5>
-            <p>Imadol, Lalitpur, Nepal</p>
-          </div>
-        </div>
-        
-        <div class="info-item">
-          <div class="info-icon-box"><i class="fas fa-phone-alt"></i></div>
-          <div class="info-content">
-            <h5>Call / Support Line</h5>
-            <p>+977 .....</p>
-          </div>
-        </div>
-        
-        <div class="info-item">
-          <div class="info-icon-box"><i class="fas fa-envelope"></i></div>
-          <div class="info-content">
-            <h5>Email Queries</h5>
-            <p>......</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="social-connect">
-        <div class="section-tag" style="margin-bottom:0.5rem;">Follow Our Collection</div>
-        <div class="social-icons">
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        </div>
-      </div>
+      <p>
+        Every asset added to our selection undergoes rigid criteria checks ensuring exceptional fabric performance, reliable stitch craftsmanship, and adherence to contemporary and classic palettes. We don't trace volatile microtrends; we empower confidence through timeless, versatile ensembles.
+      </p>
     </div>
-    
-    <div class="contact-form-panel">
-      <div class="form-card">
-        <form id="dedicatedContactForm">
-          <div class="form-floating-custom">
-            <label>Full Name</label>
-            <input type="text" id="contactName" placeholder="Enter your name" required>
-          </div>
-          <div class="form-floating-custom">
-            <label>Email Address</label>
-            <input type="email" id="contactEmail" placeholder="name@example.com" required>
-          </div>
-          <div class="form-floating-custom">
-            <label>Subject</label>
-            <input type="text" id="contactSubject" placeholder="Order Query, Sizing, etc." required>
-          </div>
-          <div class="form-floating-custom">
-            <label>Message Detail</label>
-            <textarea id="contactMessage" rows="5" placeholder="Write your thoughts here..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">Send Message <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
-        </form>
-      </div>
+    <div class="story-visual">
+      <div class="visual-frame">
+        <i class="fas fa-crown"></i>
+        </div>
     </div>
-    
   </div>
 </section>
 
-<div class="map-section">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14133.567150772097!2d85.3332939943564!3d27.658814757345688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb195804546333%3A0x407a3f6860e99df2!2sImadol%2C%20Lalitpur!5e0!3m2!1sen!2snp!4v1716645600000!5m2!1sen!2snp" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
+
+<section style="background: var(--bg-secondary);">
+  <div style="text-align: center; max-width:600px; margin: 0 auto 3rem;">
+    <div class="section-tag">Operational Integrity</div>
+    <h2 class="section-title" style="margin:0;">Our Core <em>Commitments</em></h2>
+  </div>
+  
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-gem"></i></div>
+      <h4>Uncompromised Quality</h4>
+      <p>From fine fabrics to structural lining alignments, we maintain clear standards so every package delivers premium wear value.</p>
+    </div>
+    
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-handshake"></i></div>
+      <h4>Client Transparency</h4>
+      <p>What you inspect online mirrors exactly what shows up at your door. Clear sizes, precise specs, no deceptive staging.</p>
+    </div>
+    
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-truck-fast"></i></div>
+      <h4>Effortless Deliveries</h4>
+      <p>Through secure logistical frameworks and simple WhatsApp order channels, tracking and acquiring fashion stays direct and fast.</p>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-grid">
     <div><h3>S & S Collection</h3><p>Timeless elegance for everyone.</p></div>
-    <div><h4>Quick Links</h4><a href="index.html">Home</a><br><a href="index.html#products">Shop</a><br><a href="index.html#about">About</a></div>
+    <div><h4>Quick Links</h4><a href="index.html">Home</a><br><a href="index.html#products">Shop</a><br><a href="contact us.html">Contact</a></div>
     <div><h4>Policy</h4><p>Free Shipping on orders above Rs 5000</p><p>Easy Returns within 7 days</p></div>
   </div>
   <hr style="border-color:rgba(255,255,255,0.1);margin-top:2rem;">
   <p style="text-align:center; margin:0;">© 2025 S&S Collection. All rights reserved.</p>
 </footer>
 
-<div class="toast-msg" id="toast">Message Sent!</div>
-
 <script>
-// Light/Dark Theme Preference Sync System
+// Global Theme Management Sync Logic
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = themeToggle.querySelector('i');
 
@@ -435,27 +353,12 @@ themeToggle.addEventListener('click', (e) => {
   }
 });
 
-// Toast notification alert system
-function showToast(msg) {
-  const toast = document.getElementById('toast');
-  toast.innerText = msg;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
-}
-
-// Form Validation and submission handler
-document.getElementById('dedicatedContactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  showToast('✓ Message sent! We will reply soon.');
-  this.reset();
-});
-
-// Window Scroll effect listener for top menu navbar
+// Fixed Menu Top Header Shadow scroll trigger
 window.addEventListener('scroll', () => {
   document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Responsive Sidebar Mobile drawer logic
+// Sidebar Mobile Canvas Navigation controls
 const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu'), ov = document.getElementById('overlay');
 ham?.addEventListener('click', () => { ham.classList.toggle('open'); mob?.classList.toggle('open'); ov?.classList.toggle('open'); });
 ov?.addEventListener('click', () => { ham?.classList.remove('open'); mob?.classList.remove('open'); ov?.classList.remove('open'); });
